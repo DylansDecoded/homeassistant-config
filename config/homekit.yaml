@@ -1,0 +1,103 @@
+---
+homekit:
+  
+  # Auto-start HomeKit when Home Assistant starts
+  auto_start: true
+
+    
+  
+  # Optional: Set a specific port (default is 21063)
+  # port: 21064
+  
+  # Filter configuration - controls what gets exposed to HomeKit
+  filter:
+    # Include specific domains or entities
+    include_domains:
+      - light
+      - climate
+      - cover
+      - alarm_control_panel
+    
+    include_entity_globs:
+        - binary_sensor.*_occupancy
+        - sensor.*_air_temperature
+        - sensor.*_humidity
+
+
+    
+    exclude_entity_globs:
+      - sensor.*_battery_level
+      - sensor.*_node_status
+      - binary_sensor.*_tamper
+      - binary_sensor.*_ac_mains_*
+      - button.*_ping
+      - button.*_identify
+    
+    # Exclude specific entities (uncomment and add as needed)
+    exclude_entities:
+
+      # Zigbee Controller
+      - button.zigbee2mqtt_bridge_restart
+
+      # Binary sensors
+      - binary_sensor.alarm_keypad_motion
+      - binary_sensor.alarm_keypad_tamper
+      - binary_sensor.breakfast_nook_window_sensor_01
+      - binary_sensor.breakfast_nook_window_sensor_01_tamper
+      - binary_sensor.breakfast_nook_window_sensor_02_tamper
+      - binary_sensor.breakfast_nook_window_sensor_02
+      
+      - binary_sensor.t6_pro_z_wave_programmable_thermostat_ac_mains_re_connected
+      - binary_sensor.t6_pro_z_wave_programmable_thermostat_ac_mains_disconnected
+      
+      - binary_sensor.t6_pro_z_wave_programmable_thermostat_ac_mains_re_connected_2
+      - binary_sensor.t6_pro_z_wave_programmable_thermostat_ac_mains_disconnected_2
+
+      # Buttons
+
+      - button.t6_pro_z_wave_programmable_thermostat_ping
+      - button.t6_pro_z_wave_programmable_thermostat_ping_2
+
+      # Sensors
+
+      - sensor.alarm_keypad_battery
+      - sensor.t6_pro_z_wave_programmable_thermostat_node_status
+      - sensor.t6_pro_z_wave_programmable_thermostat_node_status_2
+      - sensor.t6_pro_z_wave_programmable_thermostat_battery_level
+      - sensor.t6_pro_z_wave_programmable_thermostat_battery_level_2
+      - sensor.t6_pro_z_wave_programmable_thermostat_air_temperature
+      - sensor.t6_pro_z_wave_programmable_thermostat_humidity
+
+
+    include_entities:
+      - binary_sensor.smoke_detector_smoke
+      - binary_sensor.smoke_detector_co
+      - binary_sensor.alarm_keypad_motion
+      - binary_sensor.breakfast_nook_window_sensor_02
+      - binary_sensor.dining_room_window_sensor_01
+      - binary_sensor.garage_motion_sensor_occupancy
+      - climate.downstairs_thermostat
+      - climate.upstairs_thermostat
+      - 
+  
+  # Entity-specific configuration (optional)
+  entity_config:
+    # Example: Customize how entities appear in HomeKit
+    # light.living_room:
+    #   name: "Main Light"
+    #   feature_list:
+    #     - feature: brightness
+    
+    # Example: Binary sensor as motion sensor
+    # binary_sensor.motion_sensor:
+    #   type: motion
+    
+    # Example: Climate device configuration
+    # climate.thermostat:
+    #   name: "Living Room Thermostat"
+
+  # Optional: Set name for the HomeKit bridge
+  # name: "Home Assistant Bridge"
+  
+  # Optional: Safe mode (useful for troubleshooting)
+  # safe_mode: false

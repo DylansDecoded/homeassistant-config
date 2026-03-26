@@ -1,0 +1,79 @@
+- id: '1763314916989'
+  name: before_touchdown
+  entities:
+    media_player.family_room:
+      source_list:
+      - TV
+      group_members:
+      - media_player.family_room
+      - media_player.portable
+      volume_level: 0.31
+      is_volume_muted: false
+      media_content_id: x-sonos-htastream:RINCON_38420B4E4DA701400:spdif
+      media_content_type: music
+      media_title: TV
+      source: TV
+      shuffle: false
+      repeat: 'off'
+      queue_size: 1
+      device_class: speaker
+      friendly_name: Family Room
+      supported_features: 4127295
+      state: playing
+    light.living_room:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 255
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      - 25.195
+      - 90.588
+      rgb_color:
+      - 255
+      - 121
+      - 24
+      xy_color:
+      - 0.6185
+      - 0.3632
+      is_hue_group: true
+      hue_scenes:
+      - Trick or treat
+      - Christmas 2
+      - Blood moon
+      - Hocus pocus
+      - Moonlight
+      - USA
+      - Relax
+      - Silent night
+      - Bengals Game
+      - Christmas
+      - Under the tree
+      - Warm embrace
+      - Nebula
+      - Jolly
+      - Horizon
+      - Rolling hills
+      - Nutcracker
+      hue_type: room
+      lights:
+      - Hue color lamp 1
+      - Counch lamp
+      - TV Gradient Strip
+      entity_id:
+      - light.counch_lamp
+      - light.tv_gradient_strip
+      - light.hue_color_lamp_1
+      dynamics: false
+      icon: mdi:lightbulb-group
+      friendly_name: Living room
+      supported_features: 40
+      state: 'on'
+  icon: mdi:football
+  metadata: {}

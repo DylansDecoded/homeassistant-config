@@ -1,0 +1,89 @@
+bengals_touchdown_celebration:
+  alias: Bengals Touchdown Celebration
+  sequence:
+  - data:
+      scene_id: before_touchdown_score
+      snapshot_entities:
+      - light.living_room
+    action: scene.create
+  - variables:
+      family_room_volume: '{{ state_attr(''media_player.family_room'', ''volume_level'')
+        | float(0.5) }}'
+      portable_volume: '{{ state_attr(''media_player.portable'', ''volume_level'')
+        | float(0.5) }}'
+  - target:
+      entity_id: media_player.family_room
+    data:
+      volume_level: 0.5
+    action: media_player.volume_set
+  - target:
+      entity_id: media_player.family_room
+    data:
+      media:
+        media_content_id: spotify:track:3bSAKVfwI6iOF0kGLZxktQ
+        media_content_type: music
+        metadata: {}
+    action: media_player.play_media
+  - choose:
+    - conditions:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: media_player.portable
+          state: 'off'
+      sequence:
+      - target:
+          entity_id: media_player.portable
+        data:
+          volume_level: 0.65
+        action: media_player.volume_set
+      - target:
+          entity_id: media_player.portable
+        data:
+          media:
+            media_content_id: spotify:track:3bSAKVfwI6iOF0kGLZxktQ
+            media_content_type: music
+            metadata: {}
+        action: media_player.play_media
+  - repeat:
+      count: 60
+      sequence:
+      - target:
+          entity_id: scene.living_room_bengals_game
+        action: scene.turn_on
+      - delay:
+          milliseconds: 250
+      - target:
+          entity_id:
+          - light.living_room
+        action: light.turn_off
+      - delay:
+          milliseconds: 250
+  - target:
+      entity_id: scene.before_touchdown_score
+    action: scene.turn_on
+  - target:
+      entity_id: media_player.family_room
+    action: media_player.media_stop
+  - target:
+      entity_id: media_player.family_room
+    data:
+      volume_level: '{{ family_room_volume }}'
+    action: media_player.volume_set
+  - choose:
+    - conditions:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: media_player.portable
+          state: 'off'
+      sequence:
+      - target:
+          entity_id: media_player.portable
+        action: media_player.media_stop
+      - target:
+          entity_id: media_player.portable
+        data:
+          volume_level: '{{ portable_volume }}'
+        action: media_player.volume_set
+  mode: single

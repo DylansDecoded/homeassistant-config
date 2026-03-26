@@ -1,0 +1,5 @@
+---
+- platform: teamtracker
+  league_id: NFL
+  team_id: CIN
+  name: "Cincinnati Bengals"

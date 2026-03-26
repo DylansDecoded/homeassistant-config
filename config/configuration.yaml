@@ -1,0 +1,34 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Reverse Proxy settings
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.1.20.92     # Your Traefik/ingress server IP
+    - 10.1.0.0/16 # Your local network range
+  # Add the domain that requests will come from
+  cors_allowed_origins:
+    - https://hass.robsonhome.cloud
+    - http://hass.internal
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+homekit: !include homekit.yaml
+# sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
+
+# Notify group
+
+# notify:
+#   - platform: group
+#     name: "All Phones"
+#     services:
+#       - service: notify.mobile_app_dylans_iphone
+#       - service: notify.mobile_app_dylans_iphone_2

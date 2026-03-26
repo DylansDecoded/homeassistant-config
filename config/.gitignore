@@ -1,0 +1,41 @@
+# Secrets & credentials — NEVER commit
+secrets.yaml
+*.pem
+*.key
+*.crt
+*.p12
+
+# Internal storage (auth tokens, registries, state, UUIDs)
+.storage/
+
+# Databases
+*.db
+*.db-wal
+*.db-shm
+
+# Logs
+home-assistant.log*
+
+# Runtime / transient
+.cloud/
+.ha_run.lock
+__pycache__/
+deps/
+tts/
+backups/
+
+# HACS-managed custom components (installed via HACS, not hand-written)
+custom_components/hacs/
+custom_components/localtuya/
+custom_components/pirateweather/
+custom_components/teamtracker/
+
+# Blueprints shipped with HA or downloaded via UI
+blueprints/
+
+# IDE / editor
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db

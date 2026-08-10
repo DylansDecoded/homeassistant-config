@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__home-assistant__ha_search",
+      "mcp__home-assistant__ha_eval_template",
+      "mcp__home-assistant__ha_get_*",
+      "mcp__home-assistant__ha_list_*",
+      "mcp__home-assistant__ha_config_get_*",
+      "mcp__home-assistant__ha_config_list_*",
+      "mcp__home-assistant__ha_config_set_*",
+      "mcp__home-assistant__ha_set_*",
+      "mcp__home-assistant__ha_call_service",
+      "mcp__home-assistant__ha_reload_core"
+    ],
+    "ask": [
+      "mcp__home-assistant__ha_config_remove_*",
+      "mcp__home-assistant__ha_remove_*",
+      "mcp__home-assistant__ha_restart"
+    ]
+  }
+}

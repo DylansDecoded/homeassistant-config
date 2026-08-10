@@ -3,7 +3,7 @@ interior_lighting:
     - light.breakfast_nook_lights
     - light.kitchen_island_lights
     - light.dining_room_light
-    - light.butler_pantry_light
+    - light.butlers_pantry_light
     - light.living_room_ceiling_light
     - light.kitchen_recessed_lighting
     - light.loft_recessed_light
@@ -13,6 +13,6 @@ interior_lighting:
 exterior_lighting:
   entities:
     - switch.backyard_floodlight
-    - switch.backp_porch_light
+    - switch.back_porch_light
     - light.front_porch_light
     - light.driveway_sconce_lights

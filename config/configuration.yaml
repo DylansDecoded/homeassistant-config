@@ -2,6 +2,8 @@
 # Loads default set of integrations. Do not remove.
 default_config:
 
+config:
+
 # Reverse Proxy settings
 http:
   use_x_forwarded_for: true
@@ -13,22 +15,16 @@ http:
     - https://hass.robsonhome.cloud
     - http://hass.internal
 
-# Load frontend themes from the themes folder
-frontend:
-  themes: !include_dir_merge_named themes
 
-automation: !include automations.yaml
+
 script: !include scripts.yaml
 scene: !include scenes.yaml
-homekit: !include homekit.yaml
-# sensor: !include sensors.yaml
+sensor: !include sensors.yaml
 binary_sensor: !include binary_sensors.yaml
 
-# Notify group
-
-# notify:
-#   - platform: group
-#     name: "All Phones"
-#     services:
-#       - service: notify.mobile_app_dylans_iphone
-#       - service: notify.mobile_app_dylans_iphone_2
+homekit: !include homekit.yaml
+group: !include_dir_merge_named groups
+# device_tracker: !include_dir_merge_list device_tracker - All trackers have been moved to the UI.
+automation: !include_dir_merge_list automations
+# scene: !include_dir_merge_list scenes
+# script: !include_dir_merge_named script

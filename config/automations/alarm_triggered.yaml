@@ -1,0 +1,16 @@
+---
+####### Alarm Triggered #######
+
+# Define an alias for this automation
+- alias: Alarm Triggered
+  id: 87cf62aa-98f4-4d1d-be87-b79431b778ab
+  trigger:
+    - platform: state
+      entity_id: switch.robson_manor_alarm_siren
+      from: "off"
+      to: "on"
+  action:
+    - service: group.turn_on
+      entity_id: group.interior_lighting
+
+    # - service: Add service call for phone notification and call 911

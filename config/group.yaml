@@ -1,8 +1,0 @@
-### Groups for home assistant ###
-
-phones:
-  name: phones
-  entities:
-    - device_tracker.dylans_iphone
-    - mobile_app.iphone
-    

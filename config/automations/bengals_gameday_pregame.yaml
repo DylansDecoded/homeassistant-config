@@ -7,7 +7,9 @@
     saved volume.
   triggers:
     - trigger: time
-      at: sensor.bengals_pregame_start
+      at:
+        entity_id: sensor.bengals_kickoff
+        offset: "-00:15:00"
   conditions: []
   actions:
     - action: scene.turn_on

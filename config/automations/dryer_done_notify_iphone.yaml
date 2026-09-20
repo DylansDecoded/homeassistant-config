@@ -1,0 +1,20 @@
+- id: "1783447991671"
+  alias: Dryer Done - Notify iPhone
+  description: >-
+    Notify iPhone when the dryer stops vibrating (cycle finished) so laundry can
+    be folded.
+  triggers:
+    - trigger: state
+      entity_id:
+        - binary_sensor.dryer_vibration_sensor_vibration
+      from: "on"
+      to: "off"
+      for:
+        minutes: 5
+  conditions: []
+  actions:
+    - action: notify.mobile_app_iphone
+      data:
+        title: Dryer is done 🧺
+        message: The dryer has finished. Empty the recent load now.
+  mode: single

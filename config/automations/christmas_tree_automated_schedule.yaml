@@ -1,0 +1,40 @@
+- id: christmas_tree_schedule
+  description: "ON at sunset until midnight, then ON again 5:30 AM–9:00 AM (weekdays only).\n"
+  triggers:
+    - event: sunset
+      offset: "00:00:00"
+      id: turn_on
+      trigger: sun
+    - at: "00:00:00"
+      id: turn_off
+      trigger: time
+    - at: "05:30:00"
+      id: turn_on
+      trigger: time
+    - at: "09:00:00"
+      id: turn_off
+      trigger: time
+  actions:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: turn_on
+          sequence:
+            - target:
+                entity_id: switch.living_room_outlet_01
+              action: switch.turn_on
+        - conditions:
+            - condition: trigger
+              id: turn_off
+            - condition: template
+              value_template: |
+                {% if trigger.now.strftime('%H:%M') == '09:00' %}
+                  {{ now().isoweekday() not in [6, 7] }}
+                {% else %}
+                  true
+                {% endif %}
+          sequence:
+            - target:
+                entity_id: switch.living_room_outlet_01
+              action: switch.turn_off
+  mode: single

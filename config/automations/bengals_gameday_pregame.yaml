@@ -1,0 +1,70 @@
+- id: "1789781980926"
+  alias: Bengals Gameday Pregame
+  description: >-
+    15 minutes before the Cincinnati Bengals kickoff, save the current Family
+    Room volume, activate the living-room Bengals orange scene, play The Bengals
+    Growl and Welcome to the Jungle at 65%, then return to TV and restore the
+    saved volume.
+  triggers:
+    - trigger: time
+      at:
+        entity_id: sensor.bengals_kickoff
+        offset: "-00:15:00"
+  conditions: []
+  actions:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.living_room_bengals_game
+    - action: media_player.volume_set
+      target:
+        entity_id: media_player.family_room
+      data:
+        volume_level: 0.65
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.family_room
+      data:
+        media:
+          media_content_id: spotify:track:64pg8nnKw9rsCmPJTAfS0F
+          media_content_type: music
+          metadata: {}
+        enqueue: replace
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.family_room
+      data:
+        media:
+          media_content_id: spotify:track:5NIPsWpDjJTFBoPxCUUeXp
+          media_content_type: music
+          metadata: {}
+        enqueue: add
+    - wait_for_trigger:
+        - trigger: state
+          entity_id: media_player.family_room
+          to: paused
+        - trigger: state
+          entity_id: media_player.family_room
+          to: idle
+        - trigger: state
+          entity_id: media_player.family_room
+          attribute: source
+          to: TV
+      timeout:
+        minutes: 10
+      continue_on_timeout: true
+    - action: media_player.select_source
+      target:
+        entity_id: media_player.family_room
+      data:
+        source: TV
+    - delay:
+        seconds: 2
+    - action: media_player.volume_set
+      target:
+        entity_id: media_player.family_room
+      data:
+        volume_level: "{{ family_room_previous_volume }}"
+  mode: single
+  variables:
+    family_room_previous_volume: >-
+      {{ state_attr('media_player.family_room', 'volume_level') }}

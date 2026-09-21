@@ -1,0 +1,34 @@
+- id: "1762867886031"
+  alias: Christmas lights - Porch Automated
+  description: "ON at sunset until 1am, then ON again.\n"
+  triggers:
+    - event: sunset
+      offset: "00:00:00"
+      id: turn_on
+      trigger: sun
+    - at: "01:00:00"
+      id: turn_off
+      trigger: time
+  actions:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: turn_on
+          sequence:
+            - target:
+                entity_id: switch.front_porch_switch
+              action: switch.turn_on
+            - target:
+                entity_id: switch.front_porch_plug_02
+              action: switch.turn_on
+        - conditions:
+            - condition: trigger
+              id: turn_off
+          sequence:
+            - target:
+                entity_id: switch.front_porch_switch
+              action: switch.turn_off
+            - target:
+                entity_id: switch.front_porch_plug_02
+              action: switch.turn_off
+  mode: single

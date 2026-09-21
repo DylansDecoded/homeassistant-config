@@ -1,0 +1,18 @@
+- id: "1783444373641"
+  alias: Washer Done - Notify iPhone
+  description: >-
+    Notify iPhone when the washer stops vibrating (cycle finished) so laundry
+    can be moved to the dryer.
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.washer_vibration_sensor_vibration
+      from: "on"
+      to: "off"
+      for:
+        minutes: 5
+  actions:
+    - action: notify.mobile_app_iphone
+      data:
+        title: Laundry done 🧺
+        message: The washer has finished. Flip the laundry to the dryer.
+  mode: single

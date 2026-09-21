@@ -1,0 +1,47 @@
+- id: "1765327281206"
+  alias: "Christmas Village Lights "
+  description: "ON at sunset until 1am, then ON again.\n"
+  triggers:
+    - event: sunset
+      offset: "00:00:00"
+      id: turn_on
+      trigger: sun
+    - at: "01:00:00"
+      id: turn_off
+      trigger: time
+  conditions: []
+  actions:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: turn_on
+          sequence:
+            - target:
+                entity_id: switch.living_room_media_switch_left_left
+              action: switch.turn_on
+            - target:
+                entity_id: switch.living_room_media_switch_left_right
+              action: switch.turn_on
+            - target:
+                entity_id: switch.living_room_media_switch_right_left
+              action: switch.turn_on
+            - target:
+                entity_id: switch.living_room_media_switch_right_right
+              action: switch.turn_on
+        - conditions:
+            - condition: trigger
+              id: turn_off
+          sequence:
+            - target:
+                entity_id: switch.living_room_media_switch_left_left
+              action: switch.turn_off
+            - target:
+                entity_id: switch.living_room_media_switch_left_right
+              action: switch.turn_off
+            - target:
+                entity_id: switch.living_room_media_switch_right_left
+              action: switch.turn_off
+            - target:
+                entity_id: switch.living_room_media_switch_right_right
+              action: switch.turn_off
+  mode: single

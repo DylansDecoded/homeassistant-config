@@ -1,0 +1,66 @@
+- id: upstairs_thermostat_night_day_setpoint
+  alias: Upstairs Thermostat • Night/Day Setpoint
+  description: >-
+    From 12:00 AM–5:59 AM cap at 68°F; from 6:00 AM–11:59 PM cap at 69°F. Lower
+    setpoints are left alone, higher ones are pulled down. At 6:00 AM the
+    setpoint is reset to 69°F. If outside temp < 55°F, set to Auto mode with
+    heat=66°F, cool=68°F. Re-applies on boundaries, every 10 minutes, and after
+    HA restarts.
+  triggers:
+    - at: "00:00:00"
+      trigger: time
+    - at: "06:00:00"
+      id: day_start
+      trigger: time
+    - minutes: /10
+      trigger: time_pattern
+    - event: start
+      trigger: homeassistant
+  actions:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ outside_temp < 55 }}"
+            - condition: template
+              value_template: "{{ is_available }}"
+          sequence:
+            - target:
+                entity_id: "{{ target_entity }}"
+              data:
+                hvac_mode: auto
+              action: climate.set_hvac_mode
+            - target:
+                entity_id: "{{ target_entity }}"
+              data:
+                target_temp_low: 66
+                target_temp_high: 68
+              action: climate.set_temperature
+        - conditions:
+            - condition: template
+              value_template: "{{ is_available }}"
+          sequence:
+            - target:
+                entity_id: "{{ target_entity }}"
+              data:
+                hvac_mode: cool
+              action: climate.set_hvac_mode
+            - condition: template
+              value_template: >-
+                {{ is_day_start or
+                   current_temp is not number or
+                   (current_temp | float) > (desired_temp | float) }}
+            - target:
+                entity_id: "{{ target_entity }}"
+              data:
+                temperature: "{{ desired_temp }}"
+              action: climate.set_temperature
+  mode: single
+  variables:
+    target_entity: climate.upstairs_thermostat
+    outdoor_sensor: sensor.outdoor_temperature
+    outside_temp: "{{ states(outdoor_sensor) | float(100) }}"
+    is_night: "{{ now().hour < 6 }}"
+    desired_temp: "{{ 68 if is_night else 69 }}"
+    current_temp: "{{ state_attr(target_entity, 'temperature') }}"
+    is_available: "{{ states(target_entity) not in ['unavailable', 'unknown'] }}"
+    is_day_start: "{{ trigger is defined and trigger.id == 'day_start' }}"

@@ -17,7 +17,16 @@ http:
 frontend:
   themes: !include_dir_merge_named themes
 
-automation: !include automations.yaml
+template:
+  - sensor:
+      - name: Bengals Kickoff
+        unique_id: bengals_kickoff
+        device_class: timestamp
+        availability: "{{ state_attr('sensor.cincinnati_bengals', 'date') is not none }}"
+        state: "{{ state_attr('sensor.cincinnati_bengals', 'date') }}"
+
+automation manual: !include_dir_merge_list automations
+automation ui: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 homekit: !include homekit.yaml

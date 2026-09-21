@@ -1,0 +1,36 @@
+- id: bengals_touchdown_trigger
+  alias: Bengals Touchdown and Win Celebrations
+  description: >-
+    Starts the Bengals Game Hue-scene celebration only for ESPN-confirmed
+    touchdowns, and starts the same 40-second celebration with the Living room
+    Read Hue scene when ESPN confirms a Bengals win. Field goals and extra points
+    do not qualify as touchdowns.
+  triggers:
+    - trigger: state
+      entity_id: sensor.cincinnati_bengals
+      attribute: team_score
+      id: touchdown
+    - trigger: state
+      entity_id: sensor.cincinnati_bengals
+      attribute: team_winner
+      to: true
+      id: bengals_win
+  conditions: []
+  actions:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: touchdown
+            - >-
+              {{ (trigger.to_state.attributes.team_score | int(0)) >
+              (trigger.from_state.attributes.team_score | int(0)) and
+              (trigger.to_state.attributes.last_play | default('', true)) is
+              search('touchdown', ignorecase=True) }}
+          sequence:
+            - action: script.bengals_touchdown_celebration
+        - conditions:
+            - condition: trigger
+              id: bengals_win
+          sequence:
+            - action: script.bengals_win_celebration
+  mode: queued

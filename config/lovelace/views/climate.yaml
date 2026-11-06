@@ -1,0 +1,139 @@
+title: Climate
+path: climate
+icon: mdi:home-thermometer-outline
+type: sections
+max_columns: 3
+theme: Robson Manor
+sections:
+- type: grid
+  cards:
+  - type: heading
+    heading: Downstairs
+    heading_style: title
+    icon: mdi:home-floor-1
+  - type: tile
+    entity: climate.downstairs_thermostat
+    name: Downstairs thermostat
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    features:
+    - type: target-temperature
+    - type: climate-hvac-modes
+      hvac_modes:
+      - 'off'
+      - heat
+      - cool
+      - heat_cool
+      style: dropdown
+    - type: climate-fan-modes
+      style: dropdown
+    state_content:
+    - current_temperature
+    - hvac_action
+  - type: tile
+    entity: sensor.t6_pro_z_wave_programmable_thermostat_air_temperature_2
+    name: Temperature
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+  - type: tile
+    entity: sensor.t6_pro_z_wave_programmable_thermostat_humidity_2
+    name: Humidity
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+  - type: history-graph
+    title: Temperature over 24 hours
+    hours_to_show: 24
+    entities:
+    - entity: sensor.t6_pro_z_wave_programmable_thermostat_air_temperature_2
+      name: Downstairs
+    grid_options:
+      columns: full
+      rows: 4
+- type: grid
+  cards:
+  - type: heading
+    heading: Upstairs
+    heading_style: title
+    icon: mdi:home-floor-2
+  - type: tile
+    entity: climate.upstairs_thermostat
+    name: Upstairs thermostat
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    features:
+    - type: target-temperature
+    - type: climate-hvac-modes
+      hvac_modes:
+      - 'off'
+      - heat
+      - cool
+      - heat_cool
+      style: dropdown
+    - type: climate-fan-modes
+      style: dropdown
+    state_content:
+    - current_temperature
+    - hvac_action
+  - type: tile
+    entity: sensor.t6_pro_z_wave_programmable_thermostat_air_temperature
+    name: Temperature
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+  - type: tile
+    entity: sensor.t6_pro_z_wave_programmable_thermostat_humidity
+    name: Humidity
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+  - type: history-graph
+    title: Temperature over 24 hours
+    hours_to_show: 24
+    entities:
+    - entity: sensor.t6_pro_z_wave_programmable_thermostat_air_temperature
+      name: Upstairs
+    grid_options:
+      columns: full
+      rows: 4
+- type: grid
+  cards:
+  - type: heading
+    heading: Outside
+    heading_style: title
+    icon: mdi:weather-partly-cloudy
+  - type: weather-forecast
+    entity: weather.pirateweather
+    name: At home
+    forecast_type: daily
+    show_current: true
+    show_forecast: true
+    grid_options:
+      columns: full
+      rows: auto
+  - type: history-graph
+    title: Indoor humidity
+    hours_to_show: 24
+    entities:
+    - entity: sensor.t6_pro_z_wave_programmable_thermostat_humidity_2
+      name: Downstairs
+    - entity: sensor.t6_pro_z_wave_programmable_thermostat_humidity
+      name: Upstairs
+    grid_options:
+      columns: full
+      rows: 4

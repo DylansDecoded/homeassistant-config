@@ -1,0 +1,269 @@
+title: Scenes
+path: scenes
+icon: mdi:palette-outline
+type: sections
+max_columns: 3
+theme: Robson Manor
+sections:
+- type: grid
+  cards:
+  - type: heading
+    heading: Everyday
+    heading_style: title
+    icon: mdi:sofa-outline
+  - type: shortcut
+    label: Living room read
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_read
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Living room relax
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_relax
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Living room relax 2
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_relax_2
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Warm embrace
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_warm_embrace
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Home read
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.home_read
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Home relax
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.home_relax
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Loft read
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.loft_read
+    grid_options:
+      columns: 6
+      rows: 1
+- type: grid
+  cards:
+  - type: heading
+    heading: Color & atmosphere
+    heading_style: title
+    icon: mdi:palette-outline
+  - type: shortcut
+    label: Nebula
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_nebula
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Horizon
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_horizon
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Moonlight
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_moonlight
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Rolling hills
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_rolling_hills
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Bengals game
+    icon: mdi:football
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_bengals_game
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: USA
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_usa
+    grid_options:
+      columns: 6
+      rows: 1
+- type: grid
+  cards:
+  - type: heading
+    heading: Seasonal
+    heading_style: title
+    icon: mdi:calendar-star
+  - type: shortcut
+    label: Blood moon
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_blood_moon
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Hocus pocus
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_hocus_pocus
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Trick or treat
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_trick_or_treat
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Christmas
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_christmas
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Christmas 2
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_christmas_2
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Jolly
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_jolly
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Nutcracker
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_nutcracker
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Silent night
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_silent_night
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Under the tree
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_under_the_tree
+    grid_options:
+      columns: 6
+      rows: 1
+subview: true
+back_path: /lovelace/lights

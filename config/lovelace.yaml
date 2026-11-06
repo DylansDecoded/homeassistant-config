@@ -1,0 +1,9 @@
+# Keep /lovelace and existing view links while serving the dashboard from Git.
+dashboards:
+  lovelace:
+    mode: yaml
+    title: Robson Manor
+    icon: mdi:home-outline
+    show_in_sidebar: true
+    require_admin: false
+    filename: lovelace/robson-manor.yaml

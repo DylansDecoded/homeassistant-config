@@ -1,0 +1,363 @@
+title: Home
+path: default_view
+icon: mdi:home-outline
+type: sections
+max_columns: 3
+theme: Robson Manor
+sections:
+- type: grid
+  cards:
+  - type: heading
+    heading: Everyday lighting
+    heading_style: title
+    icon: mdi:lightbulb-outline
+  - type: tile
+    entity: light.kitchen_island_lights
+    name: Kitchen island
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.kitchen_recessed_lighting
+    name: Kitchen ceiling
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.living_room
+    name: Living room lamps
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.office_ceiling_light
+    name: Office ceiling
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: switch.office_key_light_switch
+    name: Office key light
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: shortcut
+    label: Read
+    icon: mdi:book-open-page-variant-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_read
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Relax
+    icon: mdi:sofa-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_relax
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: All lighting
+    icon: mdi:lightbulb-group-outline
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/lights
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: All scenes
+    icon: mdi:palette-outline
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/scenes
+    grid_options:
+      columns: 6
+      rows: 1
+- type: grid
+  cards:
+  - type: heading
+    heading: Entrances
+    heading_style: title
+    icon: mdi:door-closed
+  - type: tile
+    entity: alarm_control_panel.robson_manor_alarm
+    name: House alarm
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: cover.garage_door_opener
+    name: Garage door
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.front_door_sensor
+    name: Front door
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.sliding_door_sensor
+    name: Sliding door
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.garage_door_sensor
+    name: Garage entry
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.left_gate_sensor
+    name: Left gate
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: shortcut
+    label: Security controls
+    icon: mdi:shield-home-outline
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/security
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Climate controls
+    icon: mdi:home-thermometer-outline
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/climate
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Cameras
+    icon: mdi:cctv
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/cameras
+    grid_options:
+      columns: full
+      rows: 1
+- type: grid
+  cards:
+  - type: heading
+    heading: Weather & comfort
+    heading_style: title
+    icon: mdi:weather-partly-cloudy
+  - type: weather-forecast
+    entity: weather.pirateweather
+    name: At home
+    forecast_type: daily
+    show_current: true
+    show_forecast: true
+    grid_options:
+      columns: full
+      rows: auto
+  - type: tile
+    entity: climate.downstairs_thermostat
+    name: Downstairs
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    state_content:
+    - current_temperature
+    - hvac_action
+  - type: tile
+    entity: climate.upstairs_thermostat
+    name: Upstairs
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    state_content:
+    - current_temperature
+    - hvac_action
+- type: grid
+  cards:
+  - type: heading
+    heading: Family room
+    heading_style: title
+    icon: mdi:speaker
+  - type: media-control
+    entity: media_player.family_room
+    grid_options:
+      columns: full
+      rows: auto
+  - type: shortcut
+    label: Media
+    icon: mdi:speaker
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/media
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Bengals lights
+    icon: mdi:football
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_bengals_game
+    grid_options:
+      columns: 6
+      rows: 1
+- type: grid
+  cards:
+  - type: heading
+    heading: Around the house
+    heading_style: title
+    icon: mdi:home-outline
+  - type: tile
+    entity: binary_sensor.washer_vibration_sensor_vibration
+    name: Washer vibration
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon: mdi:washing-machine
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.dryer_vibration_sensor_vibration
+    name: Dryer vibration
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon: mdi:tumble-dryer
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: light.driveway_sconce_lights
+    name: Driveway lights
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: tile
+    entity: switch.backyard_floodlight
+    name: Backyard flood
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: markdown
+    text_only: true
+    content: '**Laundry status** reports vibration. Cycle completion alerts continue through your existing
+      automations.'
+    grid_options:
+      columns: full
+      rows: auto
+header:
+  layout: responsive
+  badges_position: bottom
+  card:
+    type: markdown
+    text_only: true
+    content: '# Robson Manor'
+badges:
+- type: entity
+  entity: person.dylan_robson
+  name: Dylan
+  show_name: true
+  show_state: true
+- type: entity
+  entity: alarm_control_panel.robson_manor_alarm
+  name: Alarm
+  show_name: true
+  show_state: true
+- type: entity
+  entity: cover.garage_door_opener
+  name: Garage
+  show_name: true
+  show_state: true
+- type: entity
+  entity: binary_sensor.smoke_detector_smoke
+  name: Smoke detected
+  show_name: true
+  show_state: true
+  color: red
+  visibility:
+  - condition: state
+    entity: binary_sensor.smoke_detector_smoke
+    state: 'on'
+- type: entity
+  entity: binary_sensor.smoke_detector_co
+  name: CO detected
+  show_name: true
+  show_state: true
+  color: red
+  visibility:
+  - condition: state
+    entity: binary_sensor.smoke_detector_co
+    state: 'on'

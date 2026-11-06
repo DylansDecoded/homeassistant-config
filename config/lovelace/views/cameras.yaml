@@ -1,0 +1,74 @@
+title: Cameras
+path: cameras
+icon: mdi:cctv
+type: sections
+max_columns: 2
+theme: Robson Manor
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Front door
+        heading_style: title
+        icon: mdi:doorbell-video
+      - type: picture-entity
+        entity: camera.front_door_snapshot
+        name: Front door snapshot
+        camera_view: auto
+        aspect_ratio: '1:1'
+        fit_mode: contain
+        show_name: true
+        show_state: false
+        tap_action:
+          action: more-info
+        grid_options:
+          columns: full
+          rows: auto
+      - type: shortcut
+        label: Refresh snapshot
+        icon: mdi:camera-retake-outline
+        tap_action:
+          action: perform-action
+          perform_action: button.press
+          target:
+            entity_id: button.front_door_take_snapshot
+        grid_options:
+          columns: full
+          rows: 1
+  - type: grid
+    cards:
+      - type: heading
+        heading: Doorbell activity
+        heading_style: title
+        icon: mdi:doorbell
+      - type: tile
+        entity: binary_sensor.front_door_ding
+        name: Doorbell press
+        tap_action:
+          action: more-info
+        icon_tap_action:
+          action: more-info
+        grid_options:
+          columns: 6
+          rows: auto
+      - type: tile
+        entity: binary_sensor.front_door_motion
+        name: Motion
+        tap_action:
+          action: more-info
+        icon_tap_action:
+          action: more-info
+        grid_options:
+          columns: 6
+          rows: auto
+      - type: history-graph
+        title: Doorbell activity over 24 hours
+        hours_to_show: 24
+        entities:
+          - entity: binary_sensor.front_door_ding
+            name: Doorbell
+          - entity: binary_sensor.front_door_motion
+            name: Motion
+        grid_options:
+          columns: full
+          rows: 4

@@ -1,0 +1,442 @@
+title: Lights
+path: lights
+icon: mdi:lightbulb-group-outline
+type: sections
+max_columns: 3
+theme: Robson Manor
+sections:
+- type: grid
+  cards:
+  - type: heading
+    heading: Kitchen & dining
+    heading_style: title
+    icon: mdi:countertop-outline
+  - type: tile
+    entity: light.kitchen_island_lights
+    name: Island
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.kitchen_recessed_lighting
+    name: Kitchen ceiling
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.breakfast_nook_lights
+    name: Breakfast nook
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.dining_room_light
+    name: Dining room
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.butlers_pantry_light
+    name: Butler's pantry
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.coffee_bar_lamp
+    name: Coffee bar
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+- type: grid
+  cards:
+  - type: heading
+    heading: Living room
+    heading_style: title
+    icon: mdi:sofa-outline
+  - type: tile
+    entity: light.living_room
+    name: All living room lamps
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.living_room_ceiling_light
+    name: Ceiling
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.chair_table_lamp
+    name: Chair table lamp
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.counch_lamp
+    name: Couch lamp
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.tv_gradient_strip
+    name: TV lighting
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: shortcut
+    label: Read
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_read
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Relax
+    icon: mdi:palette-outline
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_relax
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: Bengals
+    icon: mdi:football
+    tap_action:
+      action: perform-action
+      perform_action: scene.turn_on
+      target:
+        entity_id: scene.living_room_bengals_game
+    grid_options:
+      columns: 6
+      rows: 1
+  - type: shortcut
+    label: All scenes
+    icon: mdi:palette-outline
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/scenes
+    grid_options:
+      columns: 6
+      rows: 1
+- type: grid
+  cards:
+  - type: heading
+    heading: Bedrooms
+    heading_style: title
+    icon: mdi:bed-king-outline
+  - type: tile
+    entity: light.master_bedroom
+    name: Main bedroom
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.master_bedroom_dimmer
+    name: Main bedroom dimmer
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.guest_room_ceiling_light
+    name: Guest room
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+- type: grid
+  cards:
+  - type: heading
+    heading: Bathrooms
+    heading_style: title
+    icon: mdi:shower-head
+  - type: tile
+    entity: light.master_bathroom_motion_dimmer
+    name: Main bathroom
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.master_bathroom_shower_dimmer
+    name: Shower
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.master_bathroom_linen_closet_dimmer
+    name: Linen closet
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.ellies_bathroom_lights
+    name: Ellie's bathroom
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+- type: grid
+  cards:
+  - type: heading
+    heading: Office & loft
+    heading_style: title
+    icon: mdi:desk
+  - type: tile
+    entity: light.office_ceiling_light
+    name: Office ceiling
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: switch.office_key_light_switch
+    name: Key light
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: tile
+    entity: light.loft_ceiling_light
+    name: Loft ceiling
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.loft_recessed_light
+    name: Loft recessed
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+- type: grid
+  cards:
+  - type: heading
+    heading: Hallways & stairs
+    heading_style: title
+    icon: mdi:stairs
+  - type: tile
+    entity: light.entryway_dimmer
+    name: Entryway
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.garage_entrance_dimmer
+    name: Garage entrance
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.upstairs_hallway_dimmer
+    name: Upstairs hallway
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.stairs_lighting
+    name: Stairs
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+- type: grid
+  cards:
+  - type: heading
+    heading: Outside
+    heading_style: title
+    icon: mdi:outdoor-lamp
+  - type: tile
+    entity: light.driveway_sconce_lights
+    name: Driveway
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: light.front_porch_light
+    name: Front porch
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    features:
+    - type: light-brightness
+    color: amber
+  - type: tile
+    entity: switch.back_porch_light
+    name: Back porch
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: tile
+    entity: switch.backyard_floodlight
+    name: Backyard floodlight
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: tile
+    entity: switch.garage_light
+    name: Garage
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: tile
+    entity: switch.front_porch_switch
+    name: Porch switch
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber
+  - type: tile
+    entity: switch.front_porch_plug_02
+    name: Porch plug
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    color: amber

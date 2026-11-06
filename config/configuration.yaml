@@ -4,6 +4,11 @@ default_config:
 
 config:
 
+frontend:
+  themes: !include_dir_merge_named themes
+
+lovelace: !include lovelace.yaml
+
 # Reverse Proxy settings
 http:
   use_x_forwarded_for: true

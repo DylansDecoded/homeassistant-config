@@ -1,0 +1,326 @@
+title: Security
+path: security
+icon: mdi:shield-home-outline
+type: sections
+max_columns: 3
+theme: Robson Manor
+sections:
+- type: grid
+  cards:
+  - type: heading
+    heading: Alarm & garage
+    heading_style: title
+    icon: mdi:shield-check-outline
+  - type: alarm-panel
+    entity: alarm_control_panel.robson_manor_alarm
+    name: Robson Manor
+    states:
+    - arm_home
+    - arm_away
+    grid_options:
+      columns: full
+      rows: auto
+  - type: tile
+    entity: cover.garage_door_opener
+    name: Garage door
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    features:
+    - type: cover-open-close
+    icon_tap_action:
+      action: more-info
+  - type: entity-filter
+    entities:
+    - entity: binary_sensor.front_door_sensor
+      name: Front door
+    - entity: binary_sensor.sliding_door_sensor
+      name: Sliding door
+    - entity: binary_sensor.garage_door_sensor
+      name: Garage entry
+    - entity: binary_sensor.left_gate_sensor
+      name: Left gate
+    - entity: binary_sensor.breakfast_nook_window_sensor_01
+      name: Breakfast nook 1
+    - entity: binary_sensor.breakfast_nook_window_sensor_02
+      name: Breakfast nook 2
+    - entity: binary_sensor.dining_room_window_sensor_01
+      name: Dining room 1
+    - entity: binary_sensor.dining_room_window_sensor_02
+      name: Dining room 2
+    - entity: binary_sensor.living_room_window_sensor_01
+      name: Living room 1
+    - entity: binary_sensor.living_room_window_sensor_02
+      name: Living room 2
+    state_filter:
+    - 'on'
+    show_empty: false
+    card:
+      type: entities
+      title: Open doors & windows
+      show_header_toggle: false
+    grid_options:
+      columns: full
+      rows: auto
+- type: grid
+  cards:
+  - type: heading
+    heading: Doors & gate
+    heading_style: title
+    icon: mdi:door-closed
+  - type: tile
+    entity: binary_sensor.front_door_sensor
+    name: Front door
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.sliding_door_sensor
+    name: Sliding door
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.garage_door_sensor
+    name: Garage entry
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.left_gate_sensor
+    name: Left gate
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+- type: grid
+  cards:
+  - type: heading
+    heading: Windows
+    heading_style: title
+    icon: mdi:window-closed-variant
+  - type: tile
+    entity: binary_sensor.breakfast_nook_window_sensor_01
+    name: Breakfast nook 1
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.breakfast_nook_window_sensor_02
+    name: Breakfast nook 2
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.dining_room_window_sensor_01
+    name: Dining room 1
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.dining_room_window_sensor_02
+    name: Dining room 2
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.living_room_window_sensor_01
+    name: Living room 1
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.living_room_window_sensor_02
+    name: Living room 2
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+- type: grid
+  cards:
+  - type: heading
+    heading: Safety & motion
+    heading_style: title
+    icon: mdi:smoke-detector-variant
+  - type: tile
+    entity: binary_sensor.smoke_detector_smoke
+    name: Smoke
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.smoke_detector_co
+    name: Carbon monoxide
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.garage_motion_sensor_occupancy
+    name: Garage motion
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.alarm_keypad_motion
+    name: Keypad motion
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.motion_sensor
+    name: Motion sensor
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.master_bathroom_motion_dimmer_motion_detection
+    name: Bathroom motion
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.front_door_ding
+    name: Doorbell press
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.front_door_motion
+    name: Doorbell motion
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 6
+      rows: auto
+    icon_tap_action:
+      action: more-info
+- type: grid
+  cards:
+  - type: heading
+    heading: Needs attention
+    heading_style: title
+    icon: mdi:alert-circle-outline
+  - type: entity-filter
+    entities:
+    - entity: binary_sensor.left_gate_sensor_tamper
+      name: Left gate tamper
+    - entity: binary_sensor.front_door_sensor_tamper
+      name: Front door tamper
+    - entity: binary_sensor.sliding_door_sensor_tamper
+      name: Sliding door tamper
+    - entity: binary_sensor.garage_door_sensor_tamper
+      name: Garage entry tamper
+    - entity: binary_sensor.alarm_keypad_tamper
+      name: Keypad tamper
+    - entity: binary_sensor.smoke_detector_tamper
+      name: Smoke detector tamper
+    - entity: binary_sensor.robson_manor_alarm_tamper
+      name: Alarm tamper
+    state_filter:
+    - 'on'
+    show_empty: false
+    card:
+      type: entities
+      title: Tamper alerts
+      show_header_toggle: false
+    grid_options:
+      columns: full
+      rows: auto
+  - type: tile
+    entity: binary_sensor.garage_door_opener_barrier_sensor_low_battery_warning
+    name: Barrier low battery alert
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.garage_door_opener_barrier_sensor_not_detected_supervisory_error
+    name: Barrier connection alert
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    icon_tap_action:
+      action: more-info
+  - type: tile
+    entity: binary_sensor.zigbee2mqtt_bridge_connection_state
+    name: Zigbee bridge
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: 12
+      rows: auto
+    icon_tap_action:
+      action: more-info

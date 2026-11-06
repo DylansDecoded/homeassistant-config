@@ -1,0 +1,9 @@
+title: Robson Manor
+views:
+  - !include views/home.yaml
+  - !include views/lights.yaml
+  - !include views/climate.yaml
+  - !include views/security.yaml
+  - !include views/cameras.yaml
+  - !include views/media.yaml
+  - !include views/scenes.yaml

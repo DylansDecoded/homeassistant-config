@@ -1,0 +1,38 @@
+Robson Manor:
+  # Keep native HA typography and components for predictable touch controls.
+  primary-font-family: 'Roboto, Noto, sans-serif'
+  ha-card-border-radius: '16px'
+  ha-card-border-width: '1px'
+  ha-card-box-shadow: none
+  ha-card-header-font-size: '20px'
+  modes:
+    light:
+      primary-color: '#166b63'
+      accent-color: '#a65312'
+      primary-background-color: '#eef2f5'
+      secondary-background-color: '#e4eaf0'
+      lovelace-background: '#eef2f5'
+      card-background-color: '#f9fbfc'
+      ha-card-background: '#f9fbfc'
+      ha-card-border-color: '#d6dee5'
+      primary-text-color: '#202a35'
+      secondary-text-color: '#536171'
+      disabled-text-color: '#687787'
+      divider-color: '#d6dee5'
+      app-header-background-color: '#eef2f5'
+      app-header-text-color: '#202a35'
+    dark:
+      primary-color: '#80cbc4'
+      accent-color: '#f0b36b'
+      primary-background-color: '#151b23'
+      secondary-background-color: '#202a35'
+      lovelace-background: '#151b23'
+      card-background-color: '#202a35'
+      ha-card-background: '#202a35'
+      ha-card-border-color: '#364454'
+      primary-text-color: '#e6edf3'
+      secondary-text-color: '#b2c0cd'
+      disabled-text-color: '#95a5b5'
+      divider-color: '#364454'
+      app-header-background-color: '#151b23'
+      app-header-text-color: '#e6edf3'
